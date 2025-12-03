@@ -1,5 +1,7 @@
 #' Stratigraphic Plug Alignment (SPA)
 #'
+#' Linearly interpolate plug-based measurements onto a high-resolution depth grid
+#'
 #' Linearly interpolates plug-based measurements (e.g., TOC, porosity, XRD)
 #' onto a high-resolution reference depth grid (e.g., XRF). The procedure
 #' uses base R's \code{approx()} with \code{rule = 1} to prevent extrapolation
@@ -7,15 +9,19 @@
 #' alignment.
 #'
 #' @param ref A data.frame containing the reference depth grid and (optionally)
-#'   high-resolution variables (e.g., XRF). Must include \code{depth_col}.
+#'   high-resolution variables. Must include the depth column specified in
+#'   \code{depth_col}.
 #' @param ... One or more named data.frames containing plug-based measurements
 #'   to be interpolated (e.g., \code{xrd = xrd_df}, \code{plugs = plug_df}).
-#' @param depth_col Character string with the name of the depth column shared
-#'   by all input datasets.
-#' @param rule Integer passed to \code{approx()} (default = 1).
-#' @param add_suffix Logical; TRUE = suffix variable names with dataset name.
+#' @param depth_col Character string naming the depth column shared by all
+#'   input datasets. Defaults to \code{"Depth_m"}.
+#' @param rule Integer passed to \code{approx()} (default \code{1}).
+#' @param add_suffix Logical; if \code{TRUE}, variable names are suffixed with
+#'   the dataset name.
 #'
-#' @return A data.frame with the reference depth grid and interpolated variables.
+#' @return A data.frame containing the reference depth grid and interpolated
+#'   variables.
+#'
 #' @export
 spa_align <- function(ref,
                       ...,
