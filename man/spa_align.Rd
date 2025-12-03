@@ -8,31 +8,39 @@ spa_align(ref, ..., depth_col = "Depth_m", rule = 1, add_suffix = TRUE)
 }
 \arguments{
 \item{ref}{A data.frame containing the reference depth grid and (optionally)
-high-resolution variables. Must include the depth column specified in
-\code{depth_col}.}
+high-resolution variables (e.g., XRF). Must contain the depth column
+specified in \code{depth_col}.}
 
 \item{...}{One or more named data.frames containing plug-based measurements
 to be interpolated (e.g., \code{xrd = xrd_df}, \code{plugs = plug_df}).}
 
-\item{depth_col}{Character string naming the depth column shared by all
-input datasets. Defaults to \code{"Depth_m"}.}
+\item{depth_col}{A character string giving the name of the depth column
+shared by all input datasets. Defaults to \code{"Depth_m"}.}
 
-\item{rule}{Integer passed to \code{approx()} (default \code{1}).}
+\item{rule}{Integer passed to \code{approx()} (default \code{1}).
+\code{rule = 1} prevents extrapolation outside the observed depth range.}
 
 \item{add_suffix}{Logical; if \code{TRUE}, variable names are suffixed with
-the dataset name.}
+the dataset name (e.g., \code{TOC_plugs}, \code{Quartz_xrd}).}
 }
 \value{
 A data.frame containing the reference depth grid and interpolated
-variables.
+variables aligned to the same resolution.
 }
 \description{
-Linearly interpolate plug-based measurements onto a high-resolution depth grid
-}
-\details{
 Linearly interpolates plug-based measurements (e.g., TOC, porosity, XRD)
-onto a high-resolution reference depth grid (e.g., XRF). The procedure
-uses base R's \code{approx()} with \code{rule = 1} to prevent extrapolation
-beyond the observed depth range, ensuring stratigraphically consistent
-alignment.
+onto a high-resolution reference depth grid (e.g., XRF).
+The procedure uses base R's \code{approx()} with \code{rule = 1} to prevent
+extrapolation beyond the observed depth range, ensuring stratigraphically
+consistent alignment of all datasets.
+}
+\examples{
+# Synthetic example (for illustration)
+ref <- data.frame(Depth_m = 0:10, Ca = runif(11, 100, 200))
+xrd <- data.frame(Depth_m = c(2, 5, 7), Quartz = c(54, 60, 58))
+plugs <- data.frame(Depth_m = c(3, 7, 9), TOC = c(3.0, 3.3, 3.5))
+
+aligned <- spa_align(ref, xrd = xrd, plugs = plugs)
+head(aligned)
+
 }
