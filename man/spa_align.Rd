@@ -8,23 +8,31 @@ spa_align(ref, ..., depth_col = "Depth_m", rule = 1, add_suffix = TRUE)
 }
 \arguments{
 \item{ref}{A data.frame containing the reference depth grid and (optionally)
-high-resolution variables (e.g., XRF). Must include \code{depth_col}.}
+high-resolution variables. Must include the depth column specified in
+\code{depth_col}.}
 
 \item{...}{One or more named data.frames containing plug-based measurements
 to be interpolated (e.g., \code{xrd = xrd_df}, \code{plugs = plug_df}).}
 
-\item{depth_col}{Character string with the name of the depth column shared
-by all input datasets.}
+\item{depth_col}{Character string naming the depth column shared by all
+input datasets. Defaults to \code{"Depth_m"}.}
 
-\item{rule}{Integer passed to \code{approx()} (default = 1).}
+\item{rule}{Integer passed to \code{approx()} (default \code{1}).}
 
-\item{add_suffix}{Logical; TRUE = suffix variable names with dataset name.}
+\item{add_suffix}{Logical; if \code{TRUE}, variable names are suffixed with
+the dataset name.}
 }
 \value{
-A data.frame with the reference depth grid and interpolated variables.
+A data.frame containing the reference depth grid and interpolated
+variables.
 }
 \description{
+Linearly interpolate plug-based measurements onto a high-resolution depth grid
+}
+\details{
 Linearly interpolates plug-based measurements (e.g., TOC, porosity, XRD)
-onto a high-resolution reference depth grid (e.g., XRF), using base R's
-\code{approx()} function with \code{rule = 1} to avoid extrapolation.
+onto a high-resolution reference depth grid (e.g., XRF). The procedure
+uses base R's \code{approx()} with \code{rule = 1} to prevent extrapolation
+beyond the observed depth range, ensuring stratigraphically consistent
+alignment.
 }
