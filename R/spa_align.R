@@ -1,8 +1,10 @@
 #' Stratigraphic Plug Alignment (SPA)
 #'
 #' Linearly interpolates plug-based measurements (e.g., TOC, porosity, XRD)
-#' onto a high-resolution reference depth grid (e.g., XRF), using base R's
-#' \code{approx()} function with \code{rule = 1} to avoid extrapolation.
+#' onto a high-resolution reference depth grid (e.g., XRF). The procedure
+#' uses base R's \code{approx()} with \code{rule = 1} to prevent extrapolation
+#' beyond the observed depth range, ensuring stratigraphically consistent
+#' alignment.
 #'
 #' @param ref A data.frame containing the reference depth grid and (optionally)
 #'   high-resolution variables (e.g., XRF). Must include \code{depth_col}.
