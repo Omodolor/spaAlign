@@ -15,6 +15,10 @@
 #'
 #' @param depth_col A character string giving the name of the depth column
 #'   shared by all input datasets. Defaults to \code{"Depth_m"}.
+#'   The depth column may use any unit (e.g., meters, feet, centimeters);
+#'   \code{"Depth_m"} is only a column label and does not require depths to be
+#'   in meters. However, all input datasets must use the same depth unit for
+#'   interpolation to be meaningful.
 #'
 #' @param rule Integer passed to \code{approx()} (default \code{1}).
 #'   \code{rule = 1} prevents extrapolation outside the observed depth range.
@@ -78,4 +82,3 @@ spa_align <- function(ref,
 
   out
 }
-
