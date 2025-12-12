@@ -38,6 +38,10 @@ The procedure uses base R's \code{approx()} with \code{rule = 1} to prevent
 extrapolation beyond the observed depth range, ensuring stratigraphically
 consistent alignment of all datasets.
 }
+\details{
+SPA is intended for vertically ordered core or log data, where measurements
+are indexed by depth along a stratigraphic profile.
+}
 \examples{
 # Synthetic example (for illustration)
 ref <- data.frame(Depth_m = 0:10, Ca = runif(11, 100, 200))

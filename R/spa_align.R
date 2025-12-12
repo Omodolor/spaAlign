@@ -6,6 +6,10 @@
 #' extrapolation beyond the observed depth range, ensuring stratigraphically
 #' consistent alignment of all datasets.
 #'
+#' SPA is intended for vertically ordered core or log data, where measurements
+#' are indexed by depth along a stratigraphic profile.
+
+#'
 #' @param ref A data.frame containing the reference depth grid and (optionally)
 #'   high-resolution variables (e.g., XRF). Must contain the depth column
 #'   specified in \code{depth_col}.
