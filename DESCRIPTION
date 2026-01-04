@@ -1,6 +1,6 @@
 Package: spaAlign
 Title: Stratigraphic Plug Alignment for Integrating Plug-Based and XRF Data
-Version: 0.0.3
+Version: 0.0.6
 Authors@R: c(
     person(given = c("Hope", "E."),
            family = "Omodolor",
@@ -11,21 +11,25 @@ Authors@R: c(
            family = "Yarus",
            role = "aut")
     )
-Description: Implements the Stratigraphic Plug Alignment (SPA) procedure 
-    for integrating sparsely sampled plug-based measurements (e.g., total 
-    organic carbon, porosity, mineralogy) with high-resolution X-ray 
-    fluorescence (XRF) geochemical data. SPA uses linear interpolation via 
-    the base "approx()" function with constrained extrapolation ("rule = 1") 
-    to preserve stratigraphic order and avoid estimation beyond observed 
-    depths. The method aligns all datasets to a common depth grid, enabling 
-    high-resolution multivariate analysis and stratigraphic interpretation 
-    of core-based datasets such as those from the Utica and Point Pleasant 
-    formations.
+Description: Implements the Stratigraphic Plug Alignment (SPA) procedure for
+    integrating sparsely sampled plug-based measurements (e.g., total organic
+    carbon, porosity, mineralogy) with high-resolution X-ray fluorescence
+    (XRF) geochemical data. SPA uses linear interpolation via the base
+    approx() function with constrained extrapolation (rule = 1) to preserve
+    stratigraphic order and avoid estimation beyond observed depths. The
+    method aligns all datasets to a common depth grid, enabling high-resolution
+    multivariate analysis and stratigraphic interpretation of core-based
+    datasets such as those from the Utica and Point Pleasant formations.
+    See R Core Team (2025)
+    <https://stat.ethz.ch/R-manual/R-devel/library/stats/html/stats-package.html>
+    and Omodolor (2025)
+    <http://rave.ohiolink.edu/etdc/view?acc_num=case175262671767524>
+    for methodological background and geological context.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.3
-Depends: 
+Depends:
     R (>= 4.0)
 Imports:
     stats
@@ -34,11 +38,3 @@ Suggests:
     knitr,
     rmarkdown
 Config/testthat/edition: 3
-References:
-    R Core Team (2025). "approx: Linearly Interpolate Given Data Points".
-    <https://stat.ethz.ch/R-manual/R-4.5.1/library/stats/html/approx.html>.
-    Omodolor, H. E. (2025). "Multiscale Chemofacies Classification and
-    Reservoir Quality Assessment of Organic-Rich Mudrocks in the Utica Shale:
-    An Integrated Approach Using Multivariate Statistics, Unsupervised Machine
-    Learning, and Geostatistical Modeling".
-    <http://rave.ohiolink.edu/etdc/view?acc_num=case175262671767524>.
