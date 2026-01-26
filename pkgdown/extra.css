@@ -14,10 +14,10 @@
   color: #263494 !important;
 }
 
-/* Add comfortable left/right margin for the whole navbar */
+/* Push the whole navbar content slightly away from the left edge */
 .navbar > .container, .navbar > .container-fluid {
   max-width: 100% !important;
-  padding-left: 24px !important;
+  padding-left: 24px !important;   /* increase to 32px if you want more */
   padding-right: 24px !important;
 }
 
