@@ -44,3 +44,5 @@ Suggests:
 VignetteBuilder: knitr
 URL: https://omodolor.github.io/spaAlign/, https://github.com/Omodolor/spaAlign
 BugReports: https://github.com/Omodolor/spaAlign/issues
+URL: https://omodolor.github.io/spaAlign/, https://github.com/Omodolor/spaAlign
+BugReports: https://github.com/Omodolor/spaAlign/issues
