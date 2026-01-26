@@ -6,7 +6,7 @@ template:
     in_header: pkgdown/extra.css
 
 home:
-  title: spaAlign
+  title: Stratigraphic Plug Alignment (SPA)
   description: Stratigraphic plug alignment tools for core datasets
 
 navbar:
