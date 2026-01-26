@@ -1,6 +1,4 @@
-# spaAlign
-
-![](reference/figures/spaAlign_hex.gif)
+# Stratigraphic Plug Alignment (SPA)
 
 Aligns sparse plug-based measurements (e.g., TOC, porosity, XRD
 mineralogy) to a high-resolution reference depth grid (e.g., HHXRF)
