@@ -1,12 +1,18 @@
-url: https://omodolor.github.io/spaAlign/
+ url: https://omodolor.github.io/spaAlign/
+
 template:
   bootstrap: 5
+  assets:
+    - man/figures
 
 navbar:
   structure:
-    left:  [intro, reference, articles]
+    left:  [home, intro, reference, articles]
     right: [github]
   components:
+    home:
+      icon: fa-home
+      href: index.html
     articles:
       text: "Articles"
       menu:

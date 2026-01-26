@@ -18,7 +18,7 @@ output:
 
 # Methods 
 
-High‐resolution HHXRF measurements provide a dense, quasi‐continuous elemental profile downcore and therefore were used as the vertical reference grid for multivariate analysis and chemofacies definition. Sparse plug‐based measurements (e.g., TOC and total porosity) and XRD‐derived mineralogy/indices (e.g., total clay and MBI) were depth-aligned to the HHXRF grid by interpolating each variable to the nearest HHXRF depth increments using a one-dimensional linear interpolation routine (spaAlign; spa_align). All input datasets were first standardized to a common depth column name (“Depth”), sorted by depth, and screened for non-data columns (e.g., Formation). For each property dataset, values were interpolated to the HHXRF depths using rule-based behavior that restricts interpolation to the supported depth interval (no extrapolation beyond the available plug/XRD depth range under rule = 1). The resulting aligned dataset preserves the stratigraphic order of observations and enables direct, depth-consistent comparison of elemental geochemistry, chemofacies assignments, and reservoir-quality properties along the core.
+High‐resolution HHXRF measurements provide a dense, quasi‐continuous elemental profile downcore and therefore were used as the vertical reference grid for multivariate analysis and chemofacies definition. Sparse plug‐based measurements (e.g., TOC and total porosity) and XRD‐derived mineralogy/indices (e.g., total clay and MBI) were depth-aligned to the HHXRF grid by interpolating each variable to the nearest HHXRF depth increments using a one-dimensional linear interpolation routine (spaAlign; spa_align). All input datasets were first standardized to a common depth column name (“Depth”), sorted by depth, and screened for non-data columns (e.g., Formation). For each property dataset, values were interpolated to the HHXRF depths using rule-based behavior that restricts interpolation to the supported depth interval (no extrapolation beyond the available plug/XRD depth range under rule = 1). The resulting aligned dataset preserves the stratigraphic order of observations and enables direct, depth-consistent comparison of elemental geochemistry, chemofacies assignments, and reservoir-quality properties along the core. 
 
 # Justification
 
@@ -64,13 +64,13 @@ library(readr)
 
 ```
 
-# increase printing precision (useful for QC on depth alignment
+# Increase printing precision (useful for QC on depth alignment
 ```{r}
 getOption("digits")
 options(digits=15)
 ```
 
-#Portage
+# Portage ( here, we are using the Tracker core ,Portage County; API 34133244490000 as case study)
 
 Load + filter XRF, then split into Utica vs Point Pleasant
 
@@ -227,7 +227,7 @@ write.csv(Porosity_PP , "Potage_Porosity_PP.csv", row.names = FALSE)
 ```
 
 
-# The following code is preparint the data for ploting, Reference plot” of continuous XRF variables (example Ca & Si)
+# The following code is preparing the data for plotting, Reference plot” of continuous XRF variables (example Ca & Si)
 
 ```{r}
 
@@ -535,7 +535,7 @@ ggsave("combined_chemical_cluster_plot1_Potage.png", combined_plot, width = 10, 
 
 
 
-# spaAlign alignment (Utica) + how to document the “why”
+# SpaAlign alignment (Utica) + how to document the “why”. Each formation is done separately
 Rationale:
 XRF is high-resolution and continuous downcore, so we use it as the
 vertical reference grid. Plug-based datasets (TOC, Porosity, XRD)
@@ -1189,144 +1189,5 @@ ggsave("combined_tracks_fullcore.png", combined_plot, width = 12, height = 5, dp
 ```
 
 
-# Animated spaAlign logo, Make the GIF
-```{r}
-library(sf)
-library(magick)
 
-outline_text <- function(x, y, labels, col, border, cex = 3.2, font = 2,
-                         offset = 0.8, n = 24) {
-  ang <- seq(0, 2*pi, length.out = n + 1)[-(n + 1)]
-  for (a in ang) {
-    text(x + offset*cos(a), y + offset*sin(a), labels,
-         col = border, cex = cex, font = font)
-  }
-  text(x, y, labels, col = col, cex = cex, font = font)
-}
-
-make_hex <- function(R = 100) {
-  ang <- seq(0, 2*pi, length.out = 7)[1:6] + pi/6
-  xy <- cbind(cos(ang), sin(ang)) * R
-  xy <- rbind(xy, xy[1, , drop = FALSE])
-  st_sfc(st_polygon(list(xy)))
-}
-
-make_grid_lines <- function(bb, n_h = 6, n_v = 7) {
-  xs <- seq(bb["xmin"], bb["xmax"], length.out = n_v)
-  ys <- seq(bb["ymin"], bb["ymax"], length.out = n_h)
-
-  vlines <- lapply(xs, function(x) st_linestring(rbind(c(x, bb["ymin"]), c(x, bb["ymax"]))))
-  hlines <- lapply(ys, function(y) st_linestring(rbind(c(bb["xmin"], y), c(bb["xmax"], y))))
-
-  st_sfc(c(vlines, hlines))
-}
-
-make_spaAlign_frames <- function(
-  out_dir = "spaAlign_frames",
-  n_frames = 28,
-  size_px = 260,        # <<< CHANGED: small like sf
-  bg = "transparent",
-  pad = 2               # <<< CHANGED: tiny crop padding
-) {
-  dir.create(out_dir, showWarnings = FALSE)
-
-  hex <- make_hex(100)
-  bb  <- st_bbox(hex)
-
-  # tight plot limits (like sf crop)
-  xlim <- c(bb["xmin"] - pad, bb["xmax"] + pad)
-  ylim <- c(bb["ymin"] - pad, bb["ymax"] + pad)
-
-  grid <- make_grid_lines(bb, n_h = 6, n_v = 7)
-  grid_clip <- suppressWarnings(st_intersection(grid, hex))
-
-  plugs <- data.frame(
-    depth = c(15, 40, 70, 90),
-    val   = c(35, 55, 45, 60)
-  )
-
-  ref_depth <- seq(min(plugs$depth), max(plugs$depth), by = 1)
-  ref_val   <- approx(plugs$depth, plugs$val, xout = ref_depth, rule = 1)$y
-  aligned   <- data.frame(depth = ref_depth, val = ref_val)
-
-  map_xy <- function(df) {
-    x <- (df$val - 20) / (70 - 20) * 120 - 60
-    y <- -((df$depth - 10) / (95 - 10) * 140 - 70)
-    data.frame(x = x, y = y)
-  }
-
-  plugs_xy   <- map_xy(plugs)
-  aligned_xy <- map_xy(aligned)
-
-  frame_files <- character(n_frames)
-
-  for (i in seq_len(n_frames)) {
-    p <- (i - 1) / (n_frames - 1)
-    n <- max(2, floor(p * nrow(aligned_xy)))
-    curve_xy <- aligned_xy[1:n, , drop = FALSE]
-
-    curve_line <- st_sfc(st_linestring(as.matrix(curve_xy)))
-    curve_clip <- suppressWarnings(st_intersection(curve_line, hex))
-
-    f <- file.path(out_dir, sprintf("frame_%02d.png", i))
-    frame_files[i] <- f
-
-    png(f, width = size_px, height = size_px, bg = bg)
-    op <- par(mar = rep(0, 4), xaxs = "i", yaxs = "i")  # <<< CHANGED: no padding
-    on.exit(par(op), add = TRUE)
-
-    # Base canvas with tight limits
-    plot(st_geometry(hex), col = "#F6F3ED", border = NA, asp = 1,
-         xlim = xlim, ylim = ylim)
-
-    plot(grid_clip, col = "gray70", lwd = 1.2, add = TRUE)
-
-    # depth axis + ticks
-    segments(-70, 70, -70, -70, lwd = 2.5, col = "gray25")
-    tick_y <- seq(60, -60, length.out = 6)
-    segments(-75, tick_y, -65, tick_y, lwd = 2, col = "gray25")
-
-    # curve + points
-    plot(curve_clip, col = "#0B3D91", lwd = 4, add = TRUE)
-    points(plugs_xy$x, plugs_xy$y, pch = 21, bg = "#DCC27A",
-           col = "gray15", cex = 1.6, lwd = 1.5)
-
-    arrows(20, 50, 40, 50, length = 0.06, lwd = 2, col = "gray25")
-    arrows(20, 10, 40, 10, length = 0.06, lwd = 2, col = "gray25")
-
-    # borders
-    plot(st_geometry(hex), border = "gray85", lwd = 10, add = TRUE)
-    plot(st_geometry(hex), border = "gray25", lwd = 16, add = TRUE)
-
-    # labels (slightly smaller to fit at small size)
-    outline_text(0, -8,  "spaAlign", col = "#0B3D91", border = "white",
-                 cex = 1.6, offset = 0.7)
-    outline_text(0, -28, "SPA", col = "#0B3D91", border = "white",
-                 cex = 2.4, offset = 0.8)
-
-    dev.off()
-  }
-
-  frame_files
-}
-
-# --- Run ---
-frames <- make_spaAlign_frames(
-  out_dir = "spaAlign_frames",
-  n_frames = 28,
-  size_px = 260,   # <<< looks close to sf
-  bg = "transparent",
-  pad = 2
-)
-
-img <- image_read(frames)
-gif <- image_animate(img, delay = 8, dispose = "previous")
-image_write(gif, "spaAlign_hex.gif")
-
-message("Created: spaAlign_hex.gif")
-
-#print(gif)
-
-
-```
 

@@ -5,6 +5,7 @@
 .DS_Store
 .quarto
 
+<<<<<<< HEAD
 # Vignette inputs you do not want tracked
 vignettes/Potage_*.csv
 
@@ -30,3 +31,7 @@ vignettes/.nfs*
 
 # Local build artifacts
 inst/
+=======
+# local vignette input data
+vignettes/*.csv
+>>>>>>> 35a28cf (Add vignette figures and pkgdown logo)
