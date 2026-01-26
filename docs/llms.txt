@@ -1,3 +1,7 @@
+# spaAlign
+
+![](reference/figures/spaAlign_hex.gif)
+
 Aligns sparse plug-based measurements (e.g., TOC, porosity, XRD
 mineralogy) to a high-resolution reference depth grid (e.g., HHXRF)
 using rule-based one-dimensional interpolation without extrapolation.
