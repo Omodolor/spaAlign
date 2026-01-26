@@ -1,0 +1,26 @@
+url: https://omodolor.github.io/spaAlign/
+template:
+  bootstrap: 5
+
+navbar:
+  structure:
+    left:  [intro, reference, articles]
+    right: [github]
+  components:
+    articles:
+      text: "Articles"
+      menu:
+        - text: "Getting started"
+          href: articles/getting-started.html
+    github:
+      icon: fa-github
+      href: https://github.com/Omodolor/spaAlign
+
+home:
+  title: "spaAlign"
+  description: "Stratigraphic Plug Alignment — align sparse plug/XRD data to dense HHXRF depth grids."
+
+reference:
+  - title: "Core functions"
+    contents:
+      - spa_align
