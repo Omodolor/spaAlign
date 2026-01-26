@@ -36,3 +36,10 @@
 .navbar .navbar-brand {
   margin-left: 0 !important;
 }
+
+/* Reduce ONLY the homepage title size */
+.template-home main h1 {
+  font-size: 2.1rem !important;   /* try 2.0rem or 1.9rem if you want smaller */
+  line-height: 1.15 !important;
+  margin-bottom: 0.6rem !important;
+}
