@@ -1,39 +1,20 @@
 ---
-title: "Getting started with spaAlign: Full workflow"
-output: rmarkdown::html_vignette
-vignette: >
-  %\VignetteIndexEntry{Getting started with spaAlign}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
+title: "spaAlign"
+author: ""
+date: "`r format(Sys.time(), '%d %B, %Y')`"   
+output:
+  pdf_document: 
+    highlight: tango
+    latex_engine: xelatex
+    number_sections: yes
+    toc: yes
+    toc_depth: 6
+  html_document: default
+  word_document: 
+    toc: yes
+    toc_depth: '6'
+  always_allow_html: yes
 ---
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(message = FALSE, warning = FALSE, dpi = 300)
-```
-
-```{r logo, echo=FALSE, out.width="220px", fig.align="center"}
-knitr::include_graphics("figures/spaAlign_hex.gif")
-```
-
-## Results preview
-
-```{r fig_fullcore, echo=FALSE, out.width="100%", fig.align="center"}
-knitr::include_graphics("figures/combined_tracks_fullcore.png")
-```
-
-```{r fig_utica, echo=FALSE, out.width="100%", fig.align="center"}
-knitr::include_graphics("figures/combined_tracks_chemofacies.png")
-```
-
-```{r fig_pp, echo=FALSE, out.width="100%", fig.align="center"}
-knitr::include_graphics("figures/combined_tracks_chemofacies_PP.png")
-```
-
-```{r fig_cluster, echo=FALSE, out.width="100%", fig.align="center"}
-knitr::include_graphics("figures/combined_chemical_cluster_plot1_Potage.png")
-```
-
-# Methods
 
 # Methods 
 
