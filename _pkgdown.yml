@@ -10,6 +10,7 @@ home:
   description: Stratigraphic plug alignment tools for core datasets
 
 navbar:
+  title: "<img src='reference/figures/logo.gif' alt='spaAlign' style='height:42px;'>"
   structure:
     left: [home, reference, articles, news]
     right: [github]
