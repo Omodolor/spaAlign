@@ -9,7 +9,6 @@ home:
   title: "Stratigraphic Plug Alignment (SPA)"
   description: Stratigraphic plug alignment tools for core datasets
 
-
 navbar:
   structure:
     left: [reference, articles]
