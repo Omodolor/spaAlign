@@ -2,6 +2,8 @@ url: https://omododor.github.io/spaAlign/
 
 template:
   bootstrap: 5
+  includes:
+    before_title: pkgdown/includes/navbar.html
 
 home:
   title: spaAlign
