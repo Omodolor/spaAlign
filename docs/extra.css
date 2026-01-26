@@ -8,17 +8,28 @@
   color: #263494 !important;
 }
 
+/* Home page title color */
+.template-home main h1 {
+  color: #263494 !important;
+}
+
 /* Optional: make active nav items match too */
 .navbar .nav-link.active,
 .navbar .nav-link:hover {
   color: #263494 !important;
 }
 
-/* Push the whole navbar content slightly away from the left edge */
-.navbar > .container, .navbar > .container-fluid {
+/* Push navbar content away from the left edge (covers all Bootstrap container variants) */
+.navbar > .container,
+.navbar > .container-fluid,
+.navbar > .container-sm,
+.navbar > .container-md,
+.navbar > .container-lg,
+.navbar > .container-xl,
+.navbar > .container-xxl {
   max-width: 100% !important;
-  padding-left: 24px !important;   /* increase to 32px if you want more */
-  padding-right: 24px !important;
+  padding-left: 28px !important;   /* adjust: 20–40px */
+  padding-right: 28px !important;
 }
 
 /* Ensure brand doesn't have extra left spacing */
