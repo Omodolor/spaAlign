@@ -2,15 +2,16 @@ url: https://omododor.github.io/spaAlign/
 
 template:
   bootstrap: 5
+  logo: pkgdown/logo.gif
   includes:
-    before_title: pkgdown/includes/navbar.html
+    before_title: |
+      <img src="reference/figures/logo.gif" alt="spaAlign" style="height:42px; margin-right:0.5rem; vertical-align:middle;">
 
 home:
   title: spaAlign
   description: Stratigraphic plug alignment tools for core datasets
 
 navbar:
-  title: "<img src='reference/figures/logo.gif' alt='spaAlign' style='height:42px;'>"
   structure:
     left: [home, reference, articles, news]
     right: [github]
