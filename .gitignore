@@ -17,3 +17,16 @@ vignettes/.nfs*
 
 # Local build artifacts
 inst/
+
+# Vignette inputs you do not want tracked
+vignettes/Potage_*.csv
+
+# Vignette build outputs (generated)
+vignettes/*.html
+vignettes/*.pdf
+vignettes/*.tex
+vignettes/*.knit.md
+vignettes/.nfs*
+
+# Local build artifacts
+inst/
