@@ -36,3 +36,4 @@ inst/
 vignettes/*.csv
 >>>>>>> 35a28cf (Add vignette figures and pkgdown logo)
 vignettes/spaAlign_hex.gif
+docs/pkgdown.yml
