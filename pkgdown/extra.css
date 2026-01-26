@@ -1,0 +1,8 @@
+/* Make navbar brand text green */
+.navbar .navbar-brand {
+  color: #1B9E77 !important;
+  font-weight: 700;
+}
+.navbar .navbar-brand:hover {
+  color: #1B9E77 !important;
+}
