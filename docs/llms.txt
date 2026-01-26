@@ -1,0 +1,22 @@
+# spaAlign
+
+![](reference/figures/spaAlign_hex.gif)
+
+Aligns sparse plug-based measurements (e.g., TOC, porosity, XRD
+mineralogy) to a high-resolution reference depth grid (e.g., HHXRF)
+using rule-based one-dimensional interpolation without extrapolation.
+Produces depth-consistent tables for stratigraphic comparison,
+visualization, and chemofacies/reservoir-quality analysis.
+
+# Package index
+
+## Functions
+
+- [`spa_align()`](https://omododor.github.io/spaAlign/reference/spa_align.md)
+  : Stratigraphic Plug Alignment (SPA)
+
+# Articles
+
+### All vignettes
+
+- [spaAlign](https://omododor.github.io/spaAlign/articles/getting-started.md):
