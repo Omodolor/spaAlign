@@ -14,10 +14,11 @@ navbar:
     left: [reference, articles]
     right: [github]
   components:
-        github:
+    github:
       icon: fab fa-github
       aria-label: GitHub repository
       href: https://github.com/Omodolor/spaAlign
+
 reference:
   - title: "Functions"
     contents:
