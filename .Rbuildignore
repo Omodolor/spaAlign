@@ -6,3 +6,4 @@
 ^vignettes$
 ^.*\.Rproj$
 ^\.Rproj\.user$
+^research$
