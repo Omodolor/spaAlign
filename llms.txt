@@ -1,6 +1,6 @@
-# spaAlign
+# Stratigraphic Plug Alignment (SPA)
 
-![](reference/figures/spaAlign_hex.gif)
+![](spaAlign_hex.gif)
 
 Aligns sparse plug-based measurements (e.g., TOC, porosity, XRD
 mineralogy) to a high-resolution reference depth grid (e.g., HHXRF)
@@ -10,7 +10,7 @@ visualization, and chemofacies/reservoir-quality analysis.
 
 # Package index
 
-## Core functions
+## Functions
 
 - [`spa_align()`](https://omodolor.github.io/spaAlign/reference/spa_align.md)
   : Stratigraphic Plug Alignment (SPA)

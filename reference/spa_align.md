@@ -79,12 +79,12 @@ plugs <- data.frame(Depth_m = c(3, 7, 9), TOC = c(3.0, 3.3, 3.5))
 aligned <- spa_align(ref, xrd = xrd, plugs = plugs)
 head(aligned)
 #>   Depth_m       Ca Quartz_xrd TOC_plugs
-#> 1       0 160.0761         NA        NA
-#> 2       1 115.7208         NA        NA
-#> 3       2 100.7399         54        NA
-#> 4       3 146.6393         56     3.000
-#> 5       4 149.7777         58     3.075
-#> 6       5 128.9767         60     3.150
+#> 1       0 108.0750         NA        NA
+#> 2       1 183.4333         NA        NA
+#> 3       2 160.0761         54        NA
+#> 4       3 115.7208         56     3.000
+#> 5       4 100.7399         58     3.075
+#> 6       5 146.6393         60     3.150
 
 # Overlap-only alignment
 aligned_overlap <- spa_align(ref, xrd = xrd, plugs = plugs, trim = TRUE)

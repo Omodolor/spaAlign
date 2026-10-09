@@ -80,6 +80,7 @@ chemofacies
 ## Load the required libraries
 
 ``` r
+
 # Load the required libraries
 library(plyr)                         
 library(spaAlign)
@@ -107,26 +108,30 @@ library(dplyr)
     ##     intersect, setdiff, setequal, union
 
 ``` r
+
 library(readr)
 ```
 
-## increase printing precision (useful for QC on depth alignment
+## Increase printing precision (useful for QC on depth alignment
 
 ``` r
+
 getOption("digits")
 ```
 
     ## [1] 7
 
 ``` r
+
 options(digits=15)
 ```
 
-\#Portage
+## Portage ( here, we are using the Tracker core ,Portage County; API 34133244490000 as case study)
 
 Load + filter XRF, then split into Utica vs Point Pleasant
 
 ``` r
+
 Data <- read_csv("/mnt/vstor/CSE_MSE_RXF131/staging/sdle/geospatial/core_xrf_xrd/XRF_two_core_in1/chaper_3/Potage3rd.csv")
 ```
 
@@ -142,6 +147,7 @@ Data <- read_csv("/mnt/vstor/CSE_MSE_RXF131/staging/sdle/geospatial/core_xrf_xrd
     ## • `Depth_ft` -> `Depth_ft...45`
 
 ``` r
+
 # Standardize depth column name for downstream consistency
 Data <- Data %>%
   rename(Depth = `Depth_ft...1`)
@@ -203,6 +209,7 @@ Data_filtered2
 These are used as inputs to spa_align()
 
 ``` r
+
 library(dplyr)
 library(stringr)
 
@@ -223,6 +230,7 @@ write.csv(Data_P, "Potage_xrf_PP.csv", row.names = FALSE)
 ## Read xrd file and calculate MBI from xrd
 
 ``` r
+
 XRD_Portage <- read_csv("/mnt/vstor/CSE_MSE_RXF131/staging/sdle/geospatial/core_xrf_xrd/XRF_two_core_in1/chaper_3/XRD_Portage.csv")
 ```
 
@@ -236,6 +244,7 @@ XRD_Portage <- read_csv("/mnt/vstor/CSE_MSE_RXF131/staging/sdle/geospatial/core_
     ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 
 ``` r
+
 #View(XRD_Portage)
 
 XRD_Portage <- XRD_Portage %>%
@@ -262,6 +271,7 @@ write.csv(xrd_Data_P, "Potage_xrd_PP.csv", row.names = FALSE)
 ## Toc_Portage
 
 ``` r
+
 Toc_Portage <- read_csv("/mnt/vstor/CSE_MSE_RXF131/staging/sdle/geospatial/core_xrf_xrd/XRF_two_core_in1/chaper_3/TOC_data_Portage.csv")
 ```
 
@@ -275,6 +285,7 @@ Toc_Portage <- read_csv("/mnt/vstor/CSE_MSE_RXF131/staging/sdle/geospatial/core_
     ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 
 ``` r
+
 #View(Toc_Portage)
 
 
@@ -294,6 +305,7 @@ write.csv(Toc_Data_P, "Potage_TOC_PP.csv", row.names = FALSE)
 ## Porosity DATA
 
 ``` r
+
 Porosity_Portage <- read_csv("/mnt/vstor/CSE_MSE_RXF131/staging/sdle/geospatial/core_xrf_xrd/XRF_two_core_in1/chaper_3/1oil and core_potage.csv")
 ```
 
@@ -307,6 +319,7 @@ Porosity_Portage <- read_csv("/mnt/vstor/CSE_MSE_RXF131/staging/sdle/geospatial/
     ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 
 ``` r
+
 #View(Porosity_Portage)
 
 
@@ -318,6 +331,7 @@ names(Porosity_Portage)
     ## [5] "Total\nGas Saturation (% of PV)"   "Total Oil Saturation  (% of PV)"
 
 ``` r
+
 Porosity_Portage <- Porosity_Portage %>%
   rename(Total_Porosity = `Total Porosity (per off BV)\n`)
 
@@ -339,9 +353,10 @@ Porosity_PP <- Porosity_df %>%
 write.csv(Porosity_PP , "Potage_Porosity_PP.csv", row.names = FALSE)
 ```
 
-## The following code is preparint the data for ploting, Reference plot” of continuous XRF variables (example Ca & Si)
+## The following code is preparing the data for plotting, Reference plot” of continuous XRF variables (example Ca & Si)
 
 ``` r
+
 # Assuming you have the following libraries loaded
 library(ggplot2)
 library(reshape2)
@@ -383,6 +398,7 @@ sp <- ggplot(melted_data, aes(x=value, y=Depth, color=Var)) +
     ## generated.
 
 ``` r
+
 # If you want to see the plot in your R environment
 print(sp)
 ```
@@ -393,6 +409,7 @@ print(sp)
 plots (TOC, MBI, Clay, Porosity) aligned visually to the XRF depth range
 
 ``` r
+
 # Load required libraries
 library(ggplot2)
 library(reshape2)
@@ -436,6 +453,7 @@ colnames(porosity_df)
     ## [1] "Depth"    "Porosity"
 
 ``` r
+
 # Should include "Total_Porosity" and "DEPT"
 
 # Create the plot and store in a different object
@@ -471,6 +489,7 @@ print(porosity_plot)
 ![](getting-started_files/figure-html/unnamed-chunk-9-1.png)
 
 ``` r
+
 # Make sure column names are correct
 colnames(TotalClay_df)
 ```
@@ -478,6 +497,7 @@ colnames(TotalClay_df)
     ## [1] "Depth"      "Total_Clay"
 
 ``` r
+
 # Should include "Total_Porosity" and "DEPT"
 
 # Create the plot and store in a different object
@@ -513,6 +533,7 @@ print(TotalClay)
 ![](getting-started_files/figure-html/unnamed-chunk-9-2.png)
 
 ``` r
+
 # Make sure column names are correct
 colnames(mbi_df)
 ```
@@ -520,6 +541,7 @@ colnames(mbi_df)
     ## [1] "Depth" "MBI"
 
 ``` r
+
 # Should include "Total_Porosity" and "DEPT"
 
 # Create the plot and store in a different object
@@ -554,6 +576,7 @@ print(MBI_plot)
 ![](getting-started_files/figure-html/unnamed-chunk-9-3.png)
 
 ``` r
+
 # Create the plot and store in a different object
 toc_plot <- ggplot(toc_df, aes(x = TOC, y = Depth)) +
   geom_point(color = "black", size = 1.5) +  
@@ -590,6 +613,7 @@ print(toc_plot)
 ## Chemofacies colors/labels + combined panel (tracks + facies tile)
 
 ``` r
+
 library(ggplot2)
 library(reshape2)
 library(dplyr)
@@ -689,11 +713,12 @@ print(combined_plot)
 ![](getting-started_files/figure-html/unnamed-chunk-10-1.png)
 
 ``` r
+
 # Save the combined plot with desired dimensions
 ggsave("combined_chemical_cluster_plot1_Potage.png", combined_plot, width = 10, height = 5, dpi = 300)
 ```
 
-## spaAlign alignment (Utica) + how to document the “why”
+## SpaAlign alignment (Utica) + how to document the “why”. Each formation is done separately
 
 Rationale: XRF is high-resolution and continuous downcore, so we use it
 as the vertical reference grid. Plug-based datasets (TOC, Porosity, XRD)
@@ -705,6 +730,7 @@ stratigraphic order, - enables consistent multi-track plots, - allows
 facies comparisons and statistics at common depths.
 
 ``` r
+
 # Read
 xrf_df      <- read_csv("Potage_xrf_Utica.csv")
 ```
@@ -719,6 +745,7 @@ xrf_df      <- read_csv("Potage_xrf_Utica.csv")
     ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 
 ``` r
+
 toc_df      <- read_csv("Potage_TOC_Utica.csv")
 ```
 
@@ -732,6 +759,7 @@ toc_df      <- read_csv("Potage_TOC_Utica.csv")
     ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 
 ``` r
+
 porosity_df <- read_csv("Potage_Porosity_Utica.csv")
 ```
 
@@ -744,6 +772,7 @@ porosity_df <- read_csv("Potage_Porosity_Utica.csv")
     ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 
 ``` r
+
 xrd_df      <- read_csv("Potage_xrd_Utica.csv")
 ```
 
@@ -757,6 +786,7 @@ xrd_df      <- read_csv("Potage_xrd_Utica.csv")
     ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 
 ``` r
+
 # Standardize depth names
 xrf_df      <- xrf_df      %>% rename(Depth = Depth)          # (already Depth in your xrf)
 toc_df      <- toc_df      %>% rename(Depth = `Depth_(ft)`)
@@ -823,6 +853,7 @@ become NA. trim = TRUE: restrict output to depth interval where datasets
 overlap (fewer rows, fewer NAs).
 
 ``` r
+
 spa_F <- spa_align(ref=xrf_df, toc=toc_df, porosity=porosity_df, xrd=xrd_df,
                    depth_col="Depth", rule=1, add_suffix=TRUE, trim=FALSE)
 
@@ -835,24 +866,28 @@ range(spa_F$Depth, na.rm=TRUE)
     ## [1] 6141.0 6335.6
 
 ``` r
+
 range(spa_T$Depth, na.rm=TRUE)
 ```
 
     ## [1] 6144.0 6335.6
 
 ``` r
+
 nrow(spa_F)
 ```
 
     ## [1] 412
 
 ``` r
+
 nrow(spa_T)
 ```
 
     ## [1] 406
 
 ``` r
+
 # how many NAs in key columns
 colSums(is.na(spa_F[, c("TOC_wt_toc","Porosity_total_porosity","Total_Clay_xrd","MBI_xrd")]))
 ```
@@ -863,6 +898,7 @@ colSums(is.na(spa_F[, c("TOC_wt_toc","Porosity_total_porosity","Total_Clay_xrd",
     ##                       3
 
 ``` r
+
 colSums(is.na(spa_T[, c("TOC_wt_toc","Porosity_total_porosity","Total_Clay_xrd","MBI_xrd")]))
 ```
 
@@ -872,6 +908,7 @@ colSums(is.na(spa_T[, c("TOC_wt_toc","Porosity_total_porosity","Total_Clay_xrd",
     ##                       0
 
 ``` r
+
 summary(is.na(spaAlign$TOC_wt_toc))
 ```
 
@@ -879,6 +916,7 @@ summary(is.na(spaAlign$TOC_wt_toc))
     ## logical     406       6
 
 ``` r
+
 summary(is.na(spaAlign$Porosity_total_porosity))
 ```
 
@@ -896,6 +934,7 @@ summary(is.na(spaAlign$Porosity_total_porosity))
   (TOC/porosity/XRD)
 
 ``` r
+
 library(dplyr)
 library(ggplot2)
 library(patchwork)
@@ -910,6 +949,7 @@ library(scales)
     ##     col_factor
 
 ``` r
+
 # ----- Column map
 cols <- list(
   depth      = "Depth",
@@ -1058,6 +1098,7 @@ print(combined_plot)
 ![](getting-started_files/figure-html/unnamed-chunk-13-1.png)
 
 ``` r
+
 # Save wider so ticks have space (this also helps a lot)
 ggsave("combined_tracks_chemofacies.png", combined_plot, width = 12, height = 5, dpi = 300)
 ```
@@ -1065,6 +1106,7 @@ ggsave("combined_tracks_chemofacies.png", combined_plot, width = 12, height = 5,
 ## Boxplot by chemofacies (example TOC)
 
 ``` r
+
 library(dplyr)
 library(ggplot2)
 
@@ -1109,6 +1151,7 @@ spaAlign: POINT PLEASANT (PP) ALIGNMENT - Same process as Utica, but
 using PP subsets.
 
 ``` r
+
 library(readr)
 library(dplyr)
 library(spaAlign)
@@ -1127,6 +1170,7 @@ xrf_df_PP      <- read_csv("Potage_xrf_PP.csv")
     ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 
 ``` r
+
 toc_df_PP      <- read_csv("Potage_TOC_PP.csv")
 ```
 
@@ -1140,6 +1184,7 @@ toc_df_PP      <- read_csv("Potage_TOC_PP.csv")
     ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 
 ``` r
+
 porosity_df_PP <- read_csv("Potage_Porosity_PP.csv")
 ```
 
@@ -1152,6 +1197,7 @@ porosity_df_PP <- read_csv("Potage_Porosity_PP.csv")
     ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 
 ``` r
+
 xrd_df_PP      <- read_csv("Potage_xrd_PP.csv")
 ```
 
@@ -1165,6 +1211,7 @@ xrd_df_PP      <- read_csv("Potage_xrd_PP.csv")
     ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 
 ``` r
+
 # --- Standardize depth names
 # (XRF already has Depth, but this is safe)
 xrf_df_PP      <- xrf_df_PP      %>% rename(Depth = Depth)
@@ -1229,6 +1276,7 @@ names(spaAlign_PP)
 - If PP marker line differs from Utica, change yline here.
 
 ``` r
+
 library(dplyr)
 library(ggplot2)
 library(patchwork)
@@ -1253,30 +1301,35 @@ cols$toc %in% names(spaAlign_PP)
     ## [1] TRUE
 
 ``` r
+
 cols$porosity %in% names(spaAlign_PP)
 ```
 
     ## [1] TRUE
 
 ``` r
+
 cols$total_clay %in% names(spaAlign_PP)
 ```
 
     ## [1] TRUE
 
 ``` r
+
 cols$mbi %in% names(spaAlign_PP)
 ```
 
     ## [1] TRUE
 
 ``` r
+
 cols$facies %in% names(spaAlign_PP)
 ```
 
     ## [1] TRUE
 
 ``` r
+
 # Colors + labels
 facies_colors <- c(
   "1" = "#666666",
@@ -1422,6 +1475,7 @@ print(combined_plot_PP)
 ![](getting-started_files/figure-html/unnamed-chunk-16-1.png)
 
 ``` r
+
 # Save wider so ticks have space (helps porosity labels a lot)
 ggsave("combined_tracks_chemofacies_PP.png", combined_plot_PP, width = 12, height = 5, dpi = 300)
 ```
@@ -1432,6 +1486,7 @@ FULL CORE TABLE - Stack spaAlign (Utica) and spaAlign_PP (PP) into one
 dataset. - Adds an “Interval” label so you can subset later.
 
 ``` r
+
 # make sure dplyr is loaded
 library(dplyr)
 
@@ -1475,12 +1530,14 @@ names(spaAlign_full)
     ## [39] "MBI_xrd"                 "Interval"
 
 ``` r
+
 range(spaAlign_full$Depth, na.rm = TRUE)
 ```
 
     ## [1] 6141.0 6444.6
 
 ``` r
+
 nrow(spaAlign_full)
 ```
 
@@ -1492,6 +1549,7 @@ PLOT: FULL CORE TRACKS - Rebuild tracks using spaAlign_full. - Uses same
 helper functions and styling.
 
 ``` r
+
 library(dplyr)
 library(ggplot2)
 library(patchwork)
@@ -1579,162 +1637,6 @@ print(combined_plot)
 ![](getting-started_files/figure-html/unnamed-chunk-18-1.png)
 
 ``` r
+
 ggsave("combined_tracks_fullcore.png", combined_plot, width = 12, height = 5, dpi = 300)
-```
-
-## Animated spaAlign logo, Make the GIF
-
-``` r
-library(sf)
-```
-
-    ## Linking to GEOS 3.10.2, GDAL 3.4.1, PROJ 8.2.1; sf_use_s2() is TRUE
-
-``` r
-library(magick)
-```
-
-    ## Linking to ImageMagick 6.9.11.60
-    ## Enabled features: fontconfig, freetype, fftw, heic, lcms, pango, webp, x11
-    ## Disabled features: cairo, ghostscript, raw, rsvg
-
-    ## Using 16 threads
-
-``` r
-outline_text <- function(x, y, labels, col, border, cex = 3.2, font = 2,
-                         offset = 0.8, n = 24) {
-  ang <- seq(0, 2*pi, length.out = n + 1)[-(n + 1)]
-  for (a in ang) {
-    text(x + offset*cos(a), y + offset*sin(a), labels,
-         col = border, cex = cex, font = font)
-  }
-  text(x, y, labels, col = col, cex = cex, font = font)
-}
-
-make_hex <- function(R = 100) {
-  ang <- seq(0, 2*pi, length.out = 7)[1:6] + pi/6
-  xy <- cbind(cos(ang), sin(ang)) * R
-  xy <- rbind(xy, xy[1, , drop = FALSE])
-  st_sfc(st_polygon(list(xy)))
-}
-
-make_grid_lines <- function(bb, n_h = 6, n_v = 7) {
-  xs <- seq(bb["xmin"], bb["xmax"], length.out = n_v)
-  ys <- seq(bb["ymin"], bb["ymax"], length.out = n_h)
-
-  vlines <- lapply(xs, function(x) st_linestring(rbind(c(x, bb["ymin"]), c(x, bb["ymax"]))))
-  hlines <- lapply(ys, function(y) st_linestring(rbind(c(bb["xmin"], y), c(bb["xmax"], y))))
-
-  st_sfc(c(vlines, hlines))
-}
-
-make_spaAlign_frames <- function(
-  out_dir = "spaAlign_frames",
-  n_frames = 28,
-  size_px = 260,        # <<< CHANGED: small like sf
-  bg = "transparent",
-  pad = 2               # <<< CHANGED: tiny crop padding
-) {
-  dir.create(out_dir, showWarnings = FALSE)
-
-  hex <- make_hex(100)
-  bb  <- st_bbox(hex)
-
-  # tight plot limits (like sf crop)
-  xlim <- c(bb["xmin"] - pad, bb["xmax"] + pad)
-  ylim <- c(bb["ymin"] - pad, bb["ymax"] + pad)
-
-  grid <- make_grid_lines(bb, n_h = 6, n_v = 7)
-  grid_clip <- suppressWarnings(st_intersection(grid, hex))
-
-  plugs <- data.frame(
-    depth = c(15, 40, 70, 90),
-    val   = c(35, 55, 45, 60)
-  )
-
-  ref_depth <- seq(min(plugs$depth), max(plugs$depth), by = 1)
-  ref_val   <- approx(plugs$depth, plugs$val, xout = ref_depth, rule = 1)$y
-  aligned   <- data.frame(depth = ref_depth, val = ref_val)
-
-  map_xy <- function(df) {
-    x <- (df$val - 20) / (70 - 20) * 120 - 60
-    y <- -((df$depth - 10) / (95 - 10) * 140 - 70)
-    data.frame(x = x, y = y)
-  }
-
-  plugs_xy   <- map_xy(plugs)
-  aligned_xy <- map_xy(aligned)
-
-  frame_files <- character(n_frames)
-
-  for (i in seq_len(n_frames)) {
-    p <- (i - 1) / (n_frames - 1)
-    n <- max(2, floor(p * nrow(aligned_xy)))
-    curve_xy <- aligned_xy[1:n, , drop = FALSE]
-
-    curve_line <- st_sfc(st_linestring(as.matrix(curve_xy)))
-    curve_clip <- suppressWarnings(st_intersection(curve_line, hex))
-
-    f <- file.path(out_dir, sprintf("frame_%02d.png", i))
-    frame_files[i] <- f
-
-    png(f, width = size_px, height = size_px, bg = bg)
-    op <- par(mar = rep(0, 4), xaxs = "i", yaxs = "i")  # <<< CHANGED: no padding
-    on.exit(par(op), add = TRUE)
-
-    # Base canvas with tight limits
-    plot(st_geometry(hex), col = "#F6F3ED", border = NA, asp = 1,
-         xlim = xlim, ylim = ylim)
-
-    plot(grid_clip, col = "gray70", lwd = 1.2, add = TRUE)
-
-    # depth axis + ticks
-    segments(-70, 70, -70, -70, lwd = 2.5, col = "gray25")
-    tick_y <- seq(60, -60, length.out = 6)
-    segments(-75, tick_y, -65, tick_y, lwd = 2, col = "gray25")
-
-    # curve + points
-    plot(curve_clip, col = "#0B3D91", lwd = 4, add = TRUE)
-    points(plugs_xy$x, plugs_xy$y, pch = 21, bg = "#DCC27A",
-           col = "gray15", cex = 1.6, lwd = 1.5)
-
-    arrows(20, 50, 40, 50, length = 0.06, lwd = 2, col = "gray25")
-    arrows(20, 10, 40, 10, length = 0.06, lwd = 2, col = "gray25")
-
-    # borders
-    plot(st_geometry(hex), border = "gray85", lwd = 10, add = TRUE)
-    plot(st_geometry(hex), border = "gray25", lwd = 16, add = TRUE)
-
-    # labels (slightly smaller to fit at small size)
-    outline_text(0, -8,  "spaAlign", col = "#0B3D91", border = "white",
-                 cex = 1.6, offset = 0.7)
-    outline_text(0, -28, "SPA", col = "#0B3D91", border = "white",
-                 cex = 2.4, offset = 0.8)
-
-    dev.off()
-  }
-
-  frame_files
-}
-
-# --- Run ---
-frames <- make_spaAlign_frames(
-  out_dir = "spaAlign_frames",
-  n_frames = 28,
-  size_px = 260,   # <<< looks close to sf
-  bg = "transparent",
-  pad = 2
-)
-
-img <- image_read(frames)
-gif <- image_animate(img, delay = 8, dispose = "previous")
-image_write(gif, "spaAlign_hex.gif")
-
-message("Created: spaAlign_hex.gif")
-```
-
-    ## Created: spaAlign_hex.gif
-
-``` r
-#print(gif)
 ```

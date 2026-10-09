@@ -10,9 +10,24 @@
 <link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
 <script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
-<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="spaAlign">
+<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><link href="../extra.css" rel="stylesheet">
+<meta property="og:title" content="spaAlign">
 </head>
 <body>
+<p>
+
+
+
+
+
+
+
+
+  pkgdown/extra.css
+
+  
+
+  </p>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
 
 
@@ -33,12 +48,12 @@
 <li class="active nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
-<li><a class="dropdown-item" href="../articles/getting-started.html">Getting started</a></li>
+<li><a class="dropdown-item" href="../articles/getting-started.html">spaAlign</a></li>
   </ul>
 </li>
       </ul>
 <ul class="navbar-nav">
-<li class="nav-item"><a class="external-link nav-link" href="https://github.com/Omodolor/spaAlign"><span class="fa fa-github"></span></a></li>
+<li class="nav-item"><a class="external-link nav-link" href="https://github.com/Omodolor/spaAlign"><span class="fa fab fa-github"></span></a></li>
       </ul>
 </div>
 
@@ -146,7 +161,7 @@ chemofacies</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Load the required libraries</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="http://had.co.nz/plyr" class="external-link">plyr</a></span><span class="op">)</span>                         </span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">spaAlign</span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://omodolor.github.io/spaAlign/" class="external-link">spaAlign</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://stringr.tidyverse.org" class="external-link">stringr</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/hadley/reshape" class="external-link">reshape2</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
@@ -168,14 +183,18 @@ chemofacies</p>
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://readr.tidyverse.org" class="external-link">readr</a></span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
-<h2 id="increase-printing-precision-useful-for-qc-on-depth-alignment">increase printing precision (useful for QC on depth alignment<a class="anchor" aria-label="anchor" href="#increase-printing-precision-useful-for-qc-on-depth-alignment"></a>
+<h2 id="increase-printing-precision-useful-for-qc-on-depth-alignment">Increase printing precision (useful for QC on depth alignment<a class="anchor" aria-label="anchor" href="#increase-printing-precision-useful-for-qc-on-depth-alignment"></a>
 </h2>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">getOption</a></span><span class="op">(</span><span class="st">"digits"</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## [1] 7</span></span></code></pre>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span>digits<span class="op">=</span><span class="fl">15</span><span class="op">)</span></span></code></pre></div>
-<p>#Portage</p>
+</div>
+<div class="section level2">
+<h2 id="portage-here-we-are-using-the-tracker-core-portage-county-api-34133244490000-as-case-study">Portage ( here, we are using the Tracker core ,Portage County; API
+34133244490000 as case study)<a class="anchor" aria-label="anchor" href="#portage-here-we-are-using-the-tracker-core-portage-county-api-34133244490000-as-case-study"></a>
+</h2>
 <p>Load + filter XRF, then split into Utica vs Point Pleasant</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">Data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html" class="external-link">read_csv</a></span><span class="op">(</span><span class="st">"/mnt/vstor/CSE_MSE_RXF131/staging/sdle/geospatial/core_xrf_xrd/XRF_two_core_in1/chaper_3/Potage3rd.csv"</span><span class="op">)</span></span></code></pre></div>
@@ -373,8 +392,8 @@ chemofacies</p>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/write.table.html" class="external-link">write.csv</a></span><span class="op">(</span><span class="va">Porosity_PP</span> , <span class="st">"Potage_Porosity_PP.csv"</span>, row.names <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
-<h2 id="the-following-code-is-preparint-the-data-for-ploting-reference-plot-of-continuous-xrf-variables-example-ca-si">The following code is preparint the data for ploting, Reference
-plot” of continuous XRF variables (example Ca &amp; Si)<a class="anchor" aria-label="anchor" href="#the-following-code-is-preparint-the-data-for-ploting-reference-plot-of-continuous-xrf-variables-example-ca-si"></a>
+<h2 id="the-following-code-is-preparing-the-data-for-plotting-reference-plot-of-continuous-xrf-variables-example-ca-si">The following code is preparing the data for plotting, Reference
+plot” of continuous XRF variables (example Ca &amp; Si)<a class="anchor" aria-label="anchor" href="#the-following-code-is-preparing-the-data-for-plotting-reference-plot-of-continuous-xrf-variables-example-ca-si"></a>
 </h2>
 <div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Assuming you have the following libraries loaded</span></span>
@@ -694,7 +713,8 @@ tile)<a class="anchor" aria-label="anchor" href="#chemofacies-colorslabels-combi
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsave.html" class="external-link">ggsave</a></span><span class="op">(</span><span class="st">"combined_chemical_cluster_plot1_Potage.png"</span>, <span class="va">combined_plot</span>, width <span class="op">=</span> <span class="fl">10</span>, height <span class="op">=</span> <span class="fl">5</span>, dpi <span class="op">=</span> <span class="fl">300</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
-<h2 id="spaalign-alignment-utica-how-to-document-the-why">spaAlign alignment (Utica) + how to document the “why”<a class="anchor" aria-label="anchor" href="#spaalign-alignment-utica-how-to-document-the-why"></a>
+<h2 id="spaalign-alignment-utica-how-to-document-the-why--each-formation-is-done-separately">SpaAlign alignment (Utica) + how to document the “why”. Each
+formation is done separately<a class="anchor" aria-label="anchor" href="#spaalign-alignment-utica-how-to-document-the-why--each-formation-is-done-separately"></a>
 </h2>
 <p>Rationale: XRF is high-resolution and continuous downcore, so we use
 it as the vertical reference grid. Plug-based datasets (TOC, Porosity,
@@ -1068,7 +1088,7 @@ using PP subsets.</p>
 <div class="sourceCode" id="cb80"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://readr.tidyverse.org" class="external-link">readr</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">spaAlign</span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://omodolor.github.io/spaAlign/" class="external-link">spaAlign</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># --- Read (PP)</span></span>
 <span><span class="va">xrf_df_PP</span>      <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html" class="external-link">read_csv</a></span><span class="op">(</span><span class="st">"Potage_xrf_PP.csv"</span><span class="op">)</span></span></code></pre></div>
@@ -1497,153 +1517,6 @@ same helper functions and styling.</p>
 <div class="sourceCode" id="cb109"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsave.html" class="external-link">ggsave</a></span><span class="op">(</span><span class="st">"combined_tracks_fullcore.png"</span>, <span class="va">combined_plot</span>, width <span class="op">=</span> <span class="fl">12</span>, height <span class="op">=</span> <span class="fl">5</span>, dpi <span class="op">=</span> <span class="fl">300</span><span class="op">)</span></span></code></pre></div>
 </div>
-<div class="section level2">
-<h2 id="animated-spaalign-logo-make-the-gif">Animated spaAlign logo, Make the GIF<a class="anchor" aria-label="anchor" href="#animated-spaalign-logo-make-the-gif"></a>
-</h2>
-<div class="sourceCode" id="cb110"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://r-spatial.github.io/sf/" class="external-link">sf</a></span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## Linking to GEOS 3.10.2, GDAL 3.4.1, PROJ 8.2.1; sf_use_s2() is TRUE</span></span></code></pre>
-<div class="sourceCode" id="cb112"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://docs.ropensci.org/magick/" class="external-link">magick</a></span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## Linking to ImageMagick 6.9.11.60</span></span>
-<span><span class="co">## Enabled features: fontconfig, freetype, fftw, heic, lcms, pango, webp, x11</span></span>
-<span><span class="co">## Disabled features: cairo, ghostscript, raw, rsvg</span></span></code></pre>
-<pre><code><span><span class="co">## Using 16 threads</span></span></code></pre>
-<div class="sourceCode" id="cb115"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">outline_text</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, <span class="va">labels</span>, <span class="va">col</span>, <span class="va">border</span>, <span class="va">cex</span> <span class="op">=</span> <span class="fl">3.2</span>, <span class="va">font</span> <span class="op">=</span> <span class="fl">2</span>,</span>
-<span>                         <span class="va">offset</span> <span class="op">=</span> <span class="fl">0.8</span>, <span class="va">n</span> <span class="op">=</span> <span class="fl">24</span><span class="op">)</span> <span class="op">{</span></span>
-<span>  <span class="va">ang</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">2</span><span class="op">*</span><span class="va">pi</span>, length.out <span class="op">=</span> <span class="va">n</span> <span class="op">+</span> <span class="fl">1</span><span class="op">)</span><span class="op">[</span><span class="op">-</span><span class="op">(</span><span class="va">n</span> <span class="op">+</span> <span class="fl">1</span><span class="op">)</span><span class="op">]</span></span>
-<span>  <span class="kw">for</span> <span class="op">(</span><span class="va">a</span> <span class="kw">in</span> <span class="va">ang</span><span class="op">)</span> <span class="op">{</span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/r/graphics/text.html" class="external-link">text</a></span><span class="op">(</span><span class="va">x</span> <span class="op">+</span> <span class="va">offset</span><span class="op">*</span><span class="fu"><a href="https://rdrr.io/r/base/Trig.html" class="external-link">cos</a></span><span class="op">(</span><span class="va">a</span><span class="op">)</span>, <span class="va">y</span> <span class="op">+</span> <span class="va">offset</span><span class="op">*</span><span class="fu"><a href="https://rdrr.io/r/base/Trig.html" class="external-link">sin</a></span><span class="op">(</span><span class="va">a</span><span class="op">)</span>, <span class="va">labels</span>,</span>
-<span>         col <span class="op">=</span> <span class="va">border</span>, cex <span class="op">=</span> <span class="va">cex</span>, font <span class="op">=</span> <span class="va">font</span><span class="op">)</span></span>
-<span>  <span class="op">}</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/graphics/text.html" class="external-link">text</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, <span class="va">labels</span>, col <span class="op">=</span> <span class="va">col</span>, cex <span class="op">=</span> <span class="va">cex</span>, font <span class="op">=</span> <span class="va">font</span><span class="op">)</span></span>
-<span><span class="op">}</span></span>
-<span></span>
-<span><span class="va">make_hex</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">R</span> <span class="op">=</span> <span class="fl">100</span><span class="op">)</span> <span class="op">{</span></span>
-<span>  <span class="va">ang</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">2</span><span class="op">*</span><span class="va">pi</span>, length.out <span class="op">=</span> <span class="fl">7</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">6</span><span class="op">]</span> <span class="op">+</span> <span class="va">pi</span><span class="op">/</span><span class="fl">6</span></span>
-<span>  <span class="va">xy</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Trig.html" class="external-link">cos</a></span><span class="op">(</span><span class="va">ang</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/Trig.html" class="external-link">sin</a></span><span class="op">(</span><span class="va">ang</span><span class="op">)</span><span class="op">)</span> <span class="op">*</span> <span class="va">R</span></span>
-<span>  <span class="va">xy</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">rbind</a></span><span class="op">(</span><span class="va">xy</span>, <span class="va">xy</span><span class="op">[</span><span class="fl">1</span>, , drop <span class="op">=</span> <span class="cn">FALSE</span><span class="op">]</span><span class="op">)</span></span>
-<span>  <span class="fu"><a href="https://r-spatial.github.io/sf/reference/sfc.html" class="external-link">st_sfc</a></span><span class="op">(</span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/st.html" class="external-link">st_polygon</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">xy</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="op">}</span></span>
-<span></span>
-<span><span class="va">make_grid_lines</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">bb</span>, <span class="va">n_h</span> <span class="op">=</span> <span class="fl">6</span>, <span class="va">n_v</span> <span class="op">=</span> <span class="fl">7</span><span class="op">)</span> <span class="op">{</span></span>
-<span>  <span class="va">xs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="va">bb</span><span class="op">[</span><span class="st">"xmin"</span><span class="op">]</span>, <span class="va">bb</span><span class="op">[</span><span class="st">"xmax"</span><span class="op">]</span>, length.out <span class="op">=</span> <span class="va">n_v</span><span class="op">)</span></span>
-<span>  <span class="va">ys</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="va">bb</span><span class="op">[</span><span class="st">"ymin"</span><span class="op">]</span>, <span class="va">bb</span><span class="op">[</span><span class="st">"ymax"</span><span class="op">]</span>, length.out <span class="op">=</span> <span class="va">n_h</span><span class="op">)</span></span>
-<span></span>
-<span>  <span class="va">vlines</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span><span class="op">(</span><span class="va">xs</span>, <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st.html" class="external-link">st_linestring</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">rbind</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">bb</span><span class="op">[</span><span class="st">"ymin"</span><span class="op">]</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">bb</span><span class="op">[</span><span class="st">"ymax"</span><span class="op">]</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
-<span>  <span class="va">hlines</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span><span class="op">(</span><span class="va">ys</span>, <span class="kw">function</span><span class="op">(</span><span class="va">y</span><span class="op">)</span> <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st.html" class="external-link">st_linestring</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">rbind</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">bb</span><span class="op">[</span><span class="st">"xmin"</span><span class="op">]</span>, <span class="va">y</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">bb</span><span class="op">[</span><span class="st">"xmax"</span><span class="op">]</span>, <span class="va">y</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
-<span></span>
-<span>  <span class="fu"><a href="https://r-spatial.github.io/sf/reference/sfc.html" class="external-link">st_sfc</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">vlines</span>, <span class="va">hlines</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="op">}</span></span>
-<span></span>
-<span><span class="va">make_spaAlign_frames</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span></span>
-<span>  <span class="va">out_dir</span> <span class="op">=</span> <span class="st">"spaAlign_frames"</span>,</span>
-<span>  <span class="va">n_frames</span> <span class="op">=</span> <span class="fl">28</span>,</span>
-<span>  <span class="va">size_px</span> <span class="op">=</span> <span class="fl">260</span>,        <span class="co"># &lt;&lt;&lt; CHANGED: small like sf</span></span>
-<span>  <span class="va">bg</span> <span class="op">=</span> <span class="st">"transparent"</span>,</span>
-<span>  <span class="va">pad</span> <span class="op">=</span> <span class="fl">2</span>               <span class="co"># &lt;&lt;&lt; CHANGED: tiny crop padding</span></span>
-<span><span class="op">)</span> <span class="op">{</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/base/files2.html" class="external-link">dir.create</a></span><span class="op">(</span><span class="va">out_dir</span>, showWarnings <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
-<span></span>
-<span>  <span class="va">hex</span> <span class="op">&lt;-</span> <span class="fu">make_hex</span><span class="op">(</span><span class="fl">100</span><span class="op">)</span></span>
-<span>  <span class="va">bb</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_bbox.html" class="external-link">st_bbox</a></span><span class="op">(</span><span class="va">hex</span><span class="op">)</span></span>
-<span></span>
-<span>  <span class="co"># tight plot limits (like sf crop)</span></span>
-<span>  <span class="va">xlim</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">bb</span><span class="op">[</span><span class="st">"xmin"</span><span class="op">]</span> <span class="op">-</span> <span class="va">pad</span>, <span class="va">bb</span><span class="op">[</span><span class="st">"xmax"</span><span class="op">]</span> <span class="op">+</span> <span class="va">pad</span><span class="op">)</span></span>
-<span>  <span class="va">ylim</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">bb</span><span class="op">[</span><span class="st">"ymin"</span><span class="op">]</span> <span class="op">-</span> <span class="va">pad</span>, <span class="va">bb</span><span class="op">[</span><span class="st">"ymax"</span><span class="op">]</span> <span class="op">+</span> <span class="va">pad</span><span class="op">)</span></span>
-<span></span>
-<span>  <span class="va">grid</span> <span class="op">&lt;-</span> <span class="fu">make_grid_lines</span><span class="op">(</span><span class="va">bb</span>, n_h <span class="op">=</span> <span class="fl">6</span>, n_v <span class="op">=</span> <span class="fl">7</span><span class="op">)</span></span>
-<span>  <span class="va">grid_clip</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/warning.html" class="external-link">suppressWarnings</a></span><span class="op">(</span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/geos_binary_ops.html" class="external-link">st_intersection</a></span><span class="op">(</span><span class="va">grid</span>, <span class="va">hex</span><span class="op">)</span><span class="op">)</span></span>
-<span></span>
-<span>  <span class="va">plugs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span></span>
-<span>    depth <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">15</span>, <span class="fl">40</span>, <span class="fl">70</span>, <span class="fl">90</span><span class="op">)</span>,</span>
-<span>    val   <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">35</span>, <span class="fl">55</span>, <span class="fl">45</span>, <span class="fl">60</span><span class="op">)</span></span>
-<span>  <span class="op">)</span></span>
-<span></span>
-<span>  <span class="va">ref_depth</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">min</a></span><span class="op">(</span><span class="va">plugs</span><span class="op">$</span><span class="va">depth</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">max</a></span><span class="op">(</span><span class="va">plugs</span><span class="op">$</span><span class="va">depth</span><span class="op">)</span>, by <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
-<span>  <span class="va">ref_val</span>   <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/approxfun.html" class="external-link">approx</a></span><span class="op">(</span><span class="va">plugs</span><span class="op">$</span><span class="va">depth</span>, <span class="va">plugs</span><span class="op">$</span><span class="va">val</span>, xout <span class="op">=</span> <span class="va">ref_depth</span>, rule <span class="op">=</span> <span class="fl">1</span><span class="op">)</span><span class="op">$</span><span class="va">y</span></span>
-<span>  <span class="va">aligned</span>   <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>depth <span class="op">=</span> <span class="va">ref_depth</span>, val <span class="op">=</span> <span class="va">ref_val</span><span class="op">)</span></span>
-<span></span>
-<span>  <span class="va">map_xy</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">df</span><span class="op">)</span> <span class="op">{</span></span>
-<span>    <span class="va">x</span> <span class="op">&lt;-</span> <span class="op">(</span><span class="va">df</span><span class="op">$</span><span class="va">val</span> <span class="op">-</span> <span class="fl">20</span><span class="op">)</span> <span class="op">/</span> <span class="op">(</span><span class="fl">70</span> <span class="op">-</span> <span class="fl">20</span><span class="op">)</span> <span class="op">*</span> <span class="fl">120</span> <span class="op">-</span> <span class="fl">60</span></span>
-<span>    <span class="va">y</span> <span class="op">&lt;-</span> <span class="op">-</span><span class="op">(</span><span class="op">(</span><span class="va">df</span><span class="op">$</span><span class="va">depth</span> <span class="op">-</span> <span class="fl">10</span><span class="op">)</span> <span class="op">/</span> <span class="op">(</span><span class="fl">95</span> <span class="op">-</span> <span class="fl">10</span><span class="op">)</span> <span class="op">*</span> <span class="fl">140</span> <span class="op">-</span> <span class="fl">70</span><span class="op">)</span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">x</span>, y <span class="op">=</span> <span class="va">y</span><span class="op">)</span></span>
-<span>  <span class="op">}</span></span>
-<span></span>
-<span>  <span class="va">plugs_xy</span>   <span class="op">&lt;-</span> <span class="fu">map_xy</span><span class="op">(</span><span class="va">plugs</span><span class="op">)</span></span>
-<span>  <span class="va">aligned_xy</span> <span class="op">&lt;-</span> <span class="fu">map_xy</span><span class="op">(</span><span class="va">aligned</span><span class="op">)</span></span>
-<span></span>
-<span>  <span class="va">frame_files</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/character.html" class="external-link">character</a></span><span class="op">(</span><span class="va">n_frames</span><span class="op">)</span></span>
-<span></span>
-<span>  <span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq_len</a></span><span class="op">(</span><span class="va">n_frames</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
-<span>    <span class="va">p</span> <span class="op">&lt;-</span> <span class="op">(</span><span class="va">i</span> <span class="op">-</span> <span class="fl">1</span><span class="op">)</span> <span class="op">/</span> <span class="op">(</span><span class="va">n_frames</span> <span class="op">-</span> <span class="fl">1</span><span class="op">)</span></span>
-<span>    <span class="va">n</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">max</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fu"><a href="https://rdrr.io/r/base/Round.html" class="external-link">floor</a></span><span class="op">(</span><span class="va">p</span> <span class="op">*</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">aligned_xy</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
-<span>    <span class="va">curve_xy</span> <span class="op">&lt;-</span> <span class="va">aligned_xy</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="va">n</span>, , drop <span class="op">=</span> <span class="cn">FALSE</span><span class="op">]</span></span>
-<span></span>
-<span>    <span class="va">curve_line</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r-spatial.github.io/sf/reference/sfc.html" class="external-link">st_sfc</a></span><span class="op">(</span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/st.html" class="external-link">st_linestring</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">as.matrix</a></span><span class="op">(</span><span class="va">curve_xy</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
-<span>    <span class="va">curve_clip</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/warning.html" class="external-link">suppressWarnings</a></span><span class="op">(</span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/geos_binary_ops.html" class="external-link">st_intersection</a></span><span class="op">(</span><span class="va">curve_line</span>, <span class="va">hex</span><span class="op">)</span><span class="op">)</span></span>
-<span></span>
-<span>    <span class="va">f</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">out_dir</span>, <span class="fu"><a href="https://rdrr.io/r/base/sprintf.html" class="external-link">sprintf</a></span><span class="op">(</span><span class="st">"frame_%02d.png"</span>, <span class="va">i</span><span class="op">)</span><span class="op">)</span></span>
-<span>    <span class="va">frame_files</span><span class="op">[</span><span class="va">i</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="va">f</span></span>
-<span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/r/grDevices/png.html" class="external-link">png</a></span><span class="op">(</span><span class="va">f</span>, width <span class="op">=</span> <span class="va">size_px</span>, height <span class="op">=</span> <span class="va">size_px</span>, bg <span class="op">=</span> <span class="va">bg</span><span class="op">)</span></span>
-<span>    <span class="va">op</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span>mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">4</span><span class="op">)</span>, xaxs <span class="op">=</span> <span class="st">"i"</span>, yaxs <span class="op">=</span> <span class="st">"i"</span><span class="op">)</span>  <span class="co"># &lt;&lt;&lt; CHANGED: no padding</span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/r/base/on.exit.html" class="external-link">on.exit</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span><span class="va">op</span><span class="op">)</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
-<span></span>
-<span>    <span class="co"># Base canvas with tight limits</span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_geometry.html" class="external-link">st_geometry</a></span><span class="op">(</span><span class="va">hex</span><span class="op">)</span>, col <span class="op">=</span> <span class="st">"#F6F3ED"</span>, border <span class="op">=</span> <span class="cn">NA</span>, asp <span class="op">=</span> <span class="fl">1</span>,</span>
-<span>         xlim <span class="op">=</span> <span class="va">xlim</span>, ylim <span class="op">=</span> <span class="va">ylim</span><span class="op">)</span></span>
-<span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">grid_clip</span>, col <span class="op">=</span> <span class="st">"gray70"</span>, lwd <span class="op">=</span> <span class="fl">1.2</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
-<span></span>
-<span>    <span class="co"># depth axis + ticks</span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/r/graphics/segments.html" class="external-link">segments</a></span><span class="op">(</span><span class="op">-</span><span class="fl">70</span>, <span class="fl">70</span>, <span class="op">-</span><span class="fl">70</span>, <span class="op">-</span><span class="fl">70</span>, lwd <span class="op">=</span> <span class="fl">2.5</span>, col <span class="op">=</span> <span class="st">"gray25"</span><span class="op">)</span></span>
-<span>    <span class="va">tick_y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">60</span>, <span class="op">-</span><span class="fl">60</span>, length.out <span class="op">=</span> <span class="fl">6</span><span class="op">)</span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/r/graphics/segments.html" class="external-link">segments</a></span><span class="op">(</span><span class="op">-</span><span class="fl">75</span>, <span class="va">tick_y</span>, <span class="op">-</span><span class="fl">65</span>, <span class="va">tick_y</span>, lwd <span class="op">=</span> <span class="fl">2</span>, col <span class="op">=</span> <span class="st">"gray25"</span><span class="op">)</span></span>
-<span></span>
-<span>    <span class="co"># curve + points</span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">curve_clip</span>, col <span class="op">=</span> <span class="st">"#0B3D91"</span>, lwd <span class="op">=</span> <span class="fl">4</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/r/graphics/points.html" class="external-link">points</a></span><span class="op">(</span><span class="va">plugs_xy</span><span class="op">$</span><span class="va">x</span>, <span class="va">plugs_xy</span><span class="op">$</span><span class="va">y</span>, pch <span class="op">=</span> <span class="fl">21</span>, bg <span class="op">=</span> <span class="st">"#DCC27A"</span>,</span>
-<span>           col <span class="op">=</span> <span class="st">"gray15"</span>, cex <span class="op">=</span> <span class="fl">1.6</span>, lwd <span class="op">=</span> <span class="fl">1.5</span><span class="op">)</span></span>
-<span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/r/graphics/arrows.html" class="external-link">arrows</a></span><span class="op">(</span><span class="fl">20</span>, <span class="fl">50</span>, <span class="fl">40</span>, <span class="fl">50</span>, length <span class="op">=</span> <span class="fl">0.06</span>, lwd <span class="op">=</span> <span class="fl">2</span>, col <span class="op">=</span> <span class="st">"gray25"</span><span class="op">)</span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/r/graphics/arrows.html" class="external-link">arrows</a></span><span class="op">(</span><span class="fl">20</span>, <span class="fl">10</span>, <span class="fl">40</span>, <span class="fl">10</span>, length <span class="op">=</span> <span class="fl">0.06</span>, lwd <span class="op">=</span> <span class="fl">2</span>, col <span class="op">=</span> <span class="st">"gray25"</span><span class="op">)</span></span>
-<span></span>
-<span>    <span class="co"># borders</span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_geometry.html" class="external-link">st_geometry</a></span><span class="op">(</span><span class="va">hex</span><span class="op">)</span>, border <span class="op">=</span> <span class="st">"gray85"</span>, lwd <span class="op">=</span> <span class="fl">10</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_geometry.html" class="external-link">st_geometry</a></span><span class="op">(</span><span class="va">hex</span><span class="op">)</span>, border <span class="op">=</span> <span class="st">"gray25"</span>, lwd <span class="op">=</span> <span class="fl">16</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
-<span></span>
-<span>    <span class="co"># labels (slightly smaller to fit at small size)</span></span>
-<span>    <span class="fu">outline_text</span><span class="op">(</span><span class="fl">0</span>, <span class="op">-</span><span class="fl">8</span>,  <span class="st">"spaAlign"</span>, col <span class="op">=</span> <span class="st">"#0B3D91"</span>, border <span class="op">=</span> <span class="st">"white"</span>,</span>
-<span>                 cex <span class="op">=</span> <span class="fl">1.6</span>, offset <span class="op">=</span> <span class="fl">0.7</span><span class="op">)</span></span>
-<span>    <span class="fu">outline_text</span><span class="op">(</span><span class="fl">0</span>, <span class="op">-</span><span class="fl">28</span>, <span class="st">"SPA"</span>, col <span class="op">=</span> <span class="st">"#0B3D91"</span>, border <span class="op">=</span> <span class="st">"white"</span>,</span>
-<span>                 cex <span class="op">=</span> <span class="fl">2.4</span>, offset <span class="op">=</span> <span class="fl">0.8</span><span class="op">)</span></span>
-<span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/r/grDevices/dev.html" class="external-link">dev.off</a></span><span class="op">(</span><span class="op">)</span></span>
-<span>  <span class="op">}</span></span>
-<span></span>
-<span>  <span class="va">frame_files</span></span>
-<span><span class="op">}</span></span>
-<span></span>
-<span><span class="co"># --- Run ---</span></span>
-<span><span class="va">frames</span> <span class="op">&lt;-</span> <span class="fu">make_spaAlign_frames</span><span class="op">(</span></span>
-<span>  out_dir <span class="op">=</span> <span class="st">"spaAlign_frames"</span>,</span>
-<span>  n_frames <span class="op">=</span> <span class="fl">28</span>,</span>
-<span>  size_px <span class="op">=</span> <span class="fl">260</span>,   <span class="co"># &lt;&lt;&lt; looks close to sf</span></span>
-<span>  bg <span class="op">=</span> <span class="st">"transparent"</span>,</span>
-<span>  pad <span class="op">=</span> <span class="fl">2</span></span>
-<span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">img</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://docs.ropensci.org/magick/reference/editing.html" class="external-link">image_read</a></span><span class="op">(</span><span class="va">frames</span><span class="op">)</span></span>
-<span><span class="va">gif</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://docs.ropensci.org/magick/reference/animation.html" class="external-link">image_animate</a></span><span class="op">(</span><span class="va">img</span>, delay <span class="op">=</span> <span class="fl">8</span>, dispose <span class="op">=</span> <span class="st">"previous"</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://docs.ropensci.org/magick/reference/editing.html" class="external-link">image_write</a></span><span class="op">(</span><span class="va">gif</span>, <span class="st">"spaAlign_hex.gif"</span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/message.html" class="external-link">message</a></span><span class="op">(</span><span class="st">"Created: spaAlign_hex.gif"</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## Created: spaAlign_hex.gif</span></span></code></pre>
-<div class="sourceCode" id="cb117"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co">#print(gif)</span></span></code></pre></div>
-</div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside>
 </div>
@@ -1665,5 +1538,6 @@ same helper functions and styling.</p>
 
 
 
-  </body>
+  
+</body>
 </html>
