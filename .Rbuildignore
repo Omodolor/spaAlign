@@ -1,3 +1,8 @@
-^spaAlign\.Rproj$
-^\.Rproj\.user$
+^\.github$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
 ^LICENSE\.md$
+^vignettes$
+^.*\.Rproj$
+^\.Rproj\.user$

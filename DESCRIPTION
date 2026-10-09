@@ -1,15 +1,19 @@
 Package: spaAlign
 Title: Stratigraphic Plug Alignment for Integrating Plug-Based and XRF Data
-Version: 0.0.6
+Version: 0.0.7
 Authors@R: c(
     person(given = c("Hope", "E."),
            family = "Omodolor",
            email = "hopeomodolor@gmail.com",
-           role = c("aut", "cre"),
+           role = "aut",
            comment = c(ORCID = "0009-0005-7842-406X")),
     person(given = c("Jeffrey", "M."),
            family = "Yarus",
-           role = "aut")
+           role = "aut"),
+    person(given = c("Roger", "H."),
+           family = "French",
+           email = "rxf131@case.edu",
+           role = "cre")
     )
 Description: Implements the Stratigraphic Plug Alignment (SPA) procedure for
     integrating sparsely sampled plug-based measurements (e.g., total organic
@@ -38,8 +42,6 @@ Suggests:
     knitr,
     rmarkdown
 Config/testthat/edition: 3
-    knitr,
-    rmarkdown
-VignetteBuilder: knitr
-URL: https://omodolor.github.io/spaAlign/
+URL: https://omodolor.github.io/spaAlign/,
     https://github.com/Omodolor/spaAlign
+BugReports: https://github.com/Omodolor/spaAlign/issues
