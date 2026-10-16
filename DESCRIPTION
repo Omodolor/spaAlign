@@ -1,6 +1,6 @@
 Package: spaAlign
 Title: Stratigraphic Plug Alignment for Integrating Plug-Based and XRF Data
-Version: 0.0.7
+Version: 0.0.8
 Authors@R: c(
     person(given = c("Hope", "E."),
            family = "Omodolor",
@@ -32,7 +32,6 @@ Description: Implements the Stratigraphic Plug Alignment (SPA) procedure for
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.3
 Depends:
     R (>= 4.0)
 Imports:
@@ -45,3 +44,4 @@ Config/testthat/edition: 3
 URL: https://omodolor.github.io/spaAlign/,
     https://github.com/Omodolor/spaAlign
 BugReports: https://github.com/Omodolor/spaAlign/issues
+Config/roxygen2/version: 8.1.0
