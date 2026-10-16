@@ -15,13 +15,13 @@ Source:
 [`DESCRIPTION`](https://github.com/Omodolor/spaAlign/blob/main/DESCRIPTION)
 
 Omodolor HE, Yarus JM (2026). *spaAlign: Stratigraphic Plug Alignment
-for Integrating Plug-Based and XRF Data*. R package version 0.0.7,
+for Integrating Plug-Based and XRF Data*. R package version 0.0.8,
 <https://omodolor.github.io/spaAlign/>.
 
     @Manual{,
       title = {spaAlign: Stratigraphic Plug Alignment for Integrating Plug-Based and XRF Data},
       author = {Hope E. Omodolor and Jeffrey M. Yarus},
       year = {2026},
-      note = {R package version 0.0.7},
+      note = {R package version 0.0.8},
       url = {https://omodolor.github.io/spaAlign/},
     }
